@@ -21,14 +21,13 @@ client_ai = OpenAI(api_key=OPENAI_API_KEY)
 
 # === Generate a tweet with OpenAI ===
 def generate_tweet():
-    prompt = (
-    "Write a natural, engaging tweet (under 240 characters) that shares something insightful and informative"
-    "from the perspective of a senior data scientist with expertise in "
-    "forecasting, operations research, and predictive modeling. "
-    "Make it feel timely by linking to trending areas in AI and data science, "
-    "and include 1–2 relevant or trending multiple hashtags for best engagement. "
-    "Avoid sounding like marketing copy; keep it authentic and insightful and avoid flashy symbols or emojis" 
-    )
+    prompt ="""
+    Write a natural tweet (<240 chars) from a senior data scientist with expertise 
+    in forecasting and operations research. Share a specific, hard-earned lesson 
+    from real projects (e.g., model drift, bad data, stakeholder expectations). 
+    Make it authentic, relatable, and tied to a trending topic in AI. 
+    Include 1–2 relevant hashtags.
+    """
     response = client_ai.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}]
