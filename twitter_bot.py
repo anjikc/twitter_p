@@ -22,18 +22,19 @@ client_ai = OpenAI(api_key=OPENAI_API_KEY)
 # === Generate a tweet with OpenAI ===
 def generate_tweet():
     prompt = (
-        "Write a professional, insightful tweet (max 250 characters) "
-        "from the perspective of a senior data scientist with deep expertise "
-        "in forecasting, operations research, and predictive modeling. "
-        "Focus on data science & AI, share thought leadership, "
-        "and include 1–2 relevant hashtags."
+    "Write a concise, natural-sounding tweet in two to three lines "
+    "from the perspective of a senior data scientist with deep expertise "
+    "in forecasting, operations research, and predictive modeling. "
+    "The tweet should feel like genuine thought leadership, not marketing. "
+    "Sometimes phrase it as an observation, insight, or rhetorical question. "
+    "Include 1 relevant hashtag if it fits naturally."
     )
     response = client_ai.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}]
     )
     text = response.choices[0].message.content.strip()
-    return text[:250]  # enforce length limit
+    return text  # enforce length limit
 
 # === Post the tweet ===
 def post_tweet():

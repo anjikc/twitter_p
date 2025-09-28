@@ -2,10 +2,11 @@ name: Daily Tweet Bot
 
 on:
   schedule:
-    - cron: "15 7 * * *"   # 01:15 CST (07:15 UTC)
-    - cron: "15 11 * * *"  # 05:15 CST (11:15 UTC)
-    - cron: "15 14 * * *"  # 08:15 CST (14:15 UTC)
-    - cron: "15 16 * * *"  # 10:15 CST (16:15 UTC)
+    - cron: "40 16 * * *"  # 10:40 AM CST (16:40 UTC)
+    - cron: "15 19 * * *"  # 01:15 PM CST (19:15 UTC)
+    - cron: "30 21 * * *"  # 03:30 PM CST (21:30 UTC)
+    - cron: "30 23 * * *"  # 05:30 PM CST (23:30 UTC)
+    - cron: "30 2 * * *"   # 08:30 PM CST (02:30 UTC next day)
   workflow_dispatch:        # allow manual trigger
 
 jobs:
