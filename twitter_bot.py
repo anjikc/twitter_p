@@ -22,11 +22,9 @@ client_ai = OpenAI(api_key=OPENAI_API_KEY)
 # === Generate a tweet with OpenAI ===
 def generate_tweet():
     prompt ="""
-    Write a natural tweet (<240 chars) from a senior data scientist with expertise 
-    in forecasting and operations research. Share a specific, hard-earned lesson 
-    from real projects (e.g., model drift, bad data, stakeholder expectations). 
-    Make it authentic, relatable, and tied to a trending topic in AI. 
-    Include 1–2 relevant hashtags.
+    Write a tweet (<240 chars) from a senior data scientist in forecasting/ops research. 
+    Randomly choose between (a) share a painful mistake, (b) share a surprising success, (c) share a counterintuitive insight, or (d) draw a parallel with current AI trends.
+    Always make it natural, no emojis, include 1–2 hashtags
     """
     response = client_ai.chat.completions.create(
         model="gpt-4o-mini",
